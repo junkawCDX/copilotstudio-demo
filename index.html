@@ -1,41 +1,238 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-    <meta charset="utf-8">
-    <title>自治体 Copilot FAQ Agent</title>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-    <style>
-        body{
-            font-family:Segoe UI;
-            margin:30px;
-        }
+  <title>自治体AIポータル</title>
 
-        .header{
-            background:#0078D4;
-            color:white;
-            padding:20px;
-            border-radius:10px;
-        }
+  <style>
+    :root {
+      --primary-blue: #0078d4;
+      --secondary-blue: #0f6cbd;
+      --dark-blue: #0b4f6c;
+      --background: #f5f7fa;
+      --surface: #ffffff;
+      --text-primary: #1f1f1f;
+      --text-secondary: #5f6368;
+      --border: #d9e2ec;
+    }
 
-        .agent{
-            margin-top:20px;
-            height:800px;
-        }
-    </style>
+    * {
+      box-sizing: border-box;
+    }
 
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family:
+        "Segoe UI",
+        "Yu Gothic UI",
+        "Meiryo",
+        sans-serif;
+      color: var(--text-primary);
+      background: var(--background);
+    }
+
+    .page-container {
+      width: min(1600px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 20px 0 32px;
+    }
+
+    /* 横長バナー */
+    .logo-banner {
+      width: 100%;
+      overflow: hidden;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 6px 20px rgba(0, 80, 140, 0.12);
+    }
+
+    .logo-banner img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 320px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /* 案内文 */
+    .introduction {
+      margin-top: 18px;
+      padding: 18px 22px;
+      background: var(--surface);
+      border-left: 6px solid var(--primary-blue);
+      border-radius: 10px;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+    }
+
+    .introduction h1 {
+      margin: 0 0 8px;
+      color: var(--dark-blue);
+      font-size: 24px;
+      line-height: 1.4;
+    }
+
+    .introduction p {
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* 注意事項 */
+    .notice {
+      margin-top: 14px;
+      padding: 13px 16px;
+      color: #4a4a4a;
+      font-size: 13px;
+      line-height: 1.65;
+      background: #fff8e1;
+      border: 1px solid #f3d98b;
+      border-radius: 8px;
+    }
+
+    /* Copilot Studioチャット領域 */
+    .agent-section {
+      margin-top: 18px;
+      overflow: hidden;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.08);
+    }
+
+    .agent-heading {
+      display: flex;
+      align-items: center;
+      min-height: 58px;
+      margin: 0;
+      padding: 0 22px;
+      color: white;
+      font-size: 18px;
+      font-weight: 600;
+      background:
+        linear-gradient(
+          100deg,
+          var(--dark-blue),
+          var(--secondary-blue)
+        );
+    }
+
+    .agent-frame-container {
+      width: 100%;
+      height: 720px;
+      min-height: 600px;
+      background: white;
+    }
+
+    .agent-frame-container iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* フッター */
+    footer {
+      margin-top: 20px;
+      padding: 8px 16px;
+      color: #68727d;
+      font-size: 12px;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .page-container {
+        width: min(100% - 20px, 1600px);
+        padding-top: 10px;
+      }
+
+      .logo-banner {
+        border-radius: 12px;
+      }
+
+      .logo-banner img {
+        min-height: 150px;
+        object-fit: cover;
+      }
+
+      .introduction {
+        padding: 15px 16px;
+      }
+
+      .introduction h1 {
+        font-size: 20px;
+      }
+
+      .agent-frame-container {
+        height: 680px;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <main class="page-container">
 
-<div class="header">
-    <h1>自治体 Copilot FAQ Agent</h1>
-    <p>Microsoft 365 Copilot に関する質問に回答します。</p>
-</div>
+    <!--
+      GitHubリポジトリの直下に
+      logo.pngを配置してください。
+    -->
+    <header class="logo-banner">
+      ./logo.png
+    </header>
 
-<div class="agent">
+    <section class="introduction" aria-labelledby="page-title">
+      <h1 id="page-title">自治体Copilot FAQ Agent</h1>
 
+      <p>
+        Microsoft 365 Copilot、Copilot Chat、Copilot Studioに関する
+        ご質問に回答します。画面下部の入力欄に質問を入力してください。
+      </p>
+    </section>
+
+    <aside class="notice">
+      <strong>ご利用上の注意：</strong>
+      本エージェントの回答には不正確な情報が含まれる可能性があります。
+      重要な判断を行う場合は、必ず公式情報や原文をご確認ください。
+      個人情報、機密情報、取り扱いに注意が必要な情報は入力しないでください。
+    </aside>
+
+    <section class="agent-section" aria-labelledby="agent-title">
+      <h2 id="agent-title" class="agent-heading">
+        自治体Copilot FAQ Agent
+      </h2>
+
+      <div class="agent-frame-container">
+        <!--
+          以下のiframeのsrc属性は、Copilot Studioの
+          Web app画面からコピーした最新のURLに置き換えてください。
+        -->
 <iframe src="https://copilotstudio.microsoft.com/environments/dfd6a7d6-fa34-e047-bf57-78f8a7ccb0ba/bots/cr668_copilotfaqagent_AwPRXd/webchat?__version__=2&enableFileAttachment=false&cliAgent=true" frameborder="0" style="width: 100%; height: 100%; border: 0;"></iframe>
 
-</div>
+      </div>
+    </section>
 
+    <footer>
+      <div>自治体AIポータル デモ環境</div>
+      <div>Powered by Microsoft Copilot Studio</div>
+    </footer>
+
+  </main>
 </body>
 </html>
+
