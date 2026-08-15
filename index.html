@@ -2,7 +2,6 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0"
@@ -50,7 +49,7 @@
       padding: 20px 0 32px;
     }
 
-    /* 横長ロゴバナー */
+    /* 横長バナー */
     .logo-banner {
       width: 100%;
       overflow: hidden;
@@ -67,16 +66,6 @@
       max-height: 320px;
       object-fit: cover;
       object-position: center;
-    }
-
-    /* ロゴ読み込み失敗時の表示 */
-    .logo-error {
-      display: none;
-      padding: 24px;
-      color: #a4262c;
-      font-weight: 600;
-      text-align: center;
-      background: #fde7e9;
     }
 
     /* 案内文 */
@@ -131,21 +120,22 @@
       min-height: 58px;
       margin: 0;
       padding: 0 22px;
-      color: #ffffff;
+      color: white;
       font-size: 18px;
       font-weight: 600;
-      background: linear-gradient(
-        100deg,
-        var(--dark-blue),
-        var(--secondary-blue)
-      );
+      background:
+        linear-gradient(
+          100deg,
+          var(--dark-blue),
+          var(--secondary-blue)
+        );
     }
 
     .agent-frame-container {
       width: 100%;
       height: 720px;
       min-height: 600px;
-      background: #ffffff;
+      background: white;
     }
 
     .agent-frame-container iframe {
@@ -167,7 +157,7 @@
 
     @media (max-width: 768px) {
       .page-container {
-        width: calc(100% - 20px);
+        width: min(100% - 20px, 1600px);
         padding-top: 10px;
       }
 
@@ -199,26 +189,15 @@
   <main class="page-container">
 
     <!--
-      index.htmlとlogo.pngを
-      GitHubリポジトリの同じ階層に配置します。
+      GitHubリポジトリの直下に
+      logo.pngを配置してください。
     -->
-    <header class="logo-banner">
-      ./logo.pngstyle.display='block';
-        "
-      >
+<header class="logo-banner">
+  ./logo.png
+</header>
 
-      <div id="logo-error" class="logo-error">
-        ロゴ画像を読み込めませんでした。logo.pngのファイル名と配置場所をご確認ください。
-      </div>
-    </header>
-
-    <section
-      class="introduction"
-      aria-labelledby="page-title"
-    >
-      <h1 id="page-title">
-        自治体Copilot FAQ Agent
-      </h1>
+    <section class="introduction" aria-labelledby="page-title">
+      <h1 id="page-title">自治体Copilot FAQ Agent</h1>
 
       <p>
         Microsoft 365 Copilot、Copilot Chat、Copilot Studioに関する
@@ -233,20 +212,18 @@
       個人情報、機密情報、取り扱いに注意が必要な情報は入力しないでください。
     </aside>
 
-    <section
-      class="agent-section"
-      aria-labelledby="agent-title"
-    >
-      <h2
-        id="agent-title"
-        class="agent-heading"
-      >
+    <section class="agent-section" aria-labelledby="agent-title">
+      <h2 id="agent-title" class="agent-heading">
         自治体Copilot FAQ Agent
       </h2>
 
       <div class="agent-frame-container">
-        <iframe
-          src="https://copilotstudio.microsoft.com/"></iframe>
+        <!--
+          以下のiframeのsrc属性は、Copilot Studioの
+          Web app画面からコピーした最新のURLに置き換えてください。
+        -->
+<iframe src="https://copilotstudio.microsoft.com/environments/dfd6a7d6-fa34-e047-bf57-78f8a7ccb0ba/bots/cr668_copilotfaqagent_AwPRXd/webchat?__version__=2&enableFileAttachment=false&cliAgent=true" frameborder="0" style="width: 100%; height: 100%; border: 0;"></iframe>
+
       </div>
     </section>
 
